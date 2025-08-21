@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./components/head') %>
+  <%- include('./components/head', {stylesheets: ['signup.css']}) %>
   <body>
-    <div class="card">
-      <h2>Sign Up</h2>
-      <form action="/signup" method="post">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName" />
-        <label for="lastName">First Name</label>
-        <input type="text" name="lastName" id="lastName" />
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <main>
+      <div class="container-div">
+        <h2>Sign Up</h2>
+        <form action="/signup" method="post">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="firstName" />
+          <label for="lastName">First Name</label>
+          <input type="text" name="lastName" id="lastName" />
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>

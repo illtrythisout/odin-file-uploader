@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./components/head') %>
+  <%- include('./components/head', {stylesheets: ['index.css']}) %>
   <body>
-    <div>
-      <img src="/odin-logo.svg" alt="logo" />
-      <h1>Odin Drive</h1>
-    </div>
-
-    <div class="card">
-      <h2>Login to Continue</h2>
-      <form action="/login" method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account yet? <a href="/signup">Sign Up</a></p>
-    </div>
+    <main>
+      <div>
+        <h1><img src="/odin-logo.svg" alt="logo" />Odin Drive</h1>
+      </div>
+      <div class="container-div">
+        <h2>Login to Continue</h2>
+        <form action="/login" method="post">
+          <div class="input-label-div">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="input-label-div">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account yet? <a href="/signup">Sign Up</a></p>
+      </div>
+    </main>
   </body>
 </html>

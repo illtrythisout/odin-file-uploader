@@ -34,3 +34,99 @@ a {
 }
 
 /* ------------------------------------------------------------------------------------------------ */
+
+:root {
+  /* colors */
+  --color-canvas: #f3f4f6;
+  --color-canvas-darker: #e2e8f0;
+  --color-canvas-lighter: #ffffff;
+
+  --color-text-co: #030712;
+
+  --color-primary: #e17100;
+  --color-primary-lighter: #fd9a00;
+  --color-primary-even-lighter: #faab57;
+  --color-primary-darker: #bb4d00;
+
+  /* spacing */
+  --half-padding: calc(var(--default-padding) / 2);
+  --default-padding: 1rem;
+  --double-padding: calc(var(--default-padding) * 2);
+
+  /* style */
+  --default-border-radius: 10px;
+  --default-box-shadow: 2.5px 2.5px 10px 0px rgba(0, 0, 0, 0.1);
+
+  /* transition */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+#root {
+  color: var(--color-text-co);
+}
+body {
+  font-family: monospace;
+  background-color: var(--color-canvas);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--double-padding);
+
+  height: 100lvh;
+}
+b {
+  font-weight: bold;
+}
+svg {
+  --size: 1em;
+  height: var(--size);
+  width: var(--size);
+
+  fill: var(--color-text-co);
+}
+button {
+  /* align-self: center; */
+
+  background-color: var(--color-primary-lighter);
+  border: none;
+
+  padding: var(--half-padding) var(--default-padding);
+  border-radius: var(--default-border-radius);
+
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--color-primary-even-lighter);
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 1.6rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--default-padding);
+
+  width: 100%;
+}
+.input-label-div {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.container-div {
+  padding: var(--double-padding);
+
+  border-radius: var(--default-border-radius);
+  background-color: var(--color-canvas-lighter);
+  box-shadow: var(--default-box-shadow);
+}
