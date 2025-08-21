@@ -4,6 +4,7 @@ const path = require('node:path');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+require('./auth/passportConfig');
 require('dotenv').config();
 
 const expressSession = require('express-session');
@@ -48,8 +49,8 @@ app.use((req, res, next) => {
 });
 
 // Use index router
-// const indexRouter = require('./routes/indexRouter');
-// app.use('/', indexRouter);
+const indexRouter = require('./routes/indexRouter');
+app.use('/', indexRouter);
 
 // To handle errors
 // Every thrown error in the application or the previous middleware function calling `next` with an error as an argument will eventually go to this middleware function
