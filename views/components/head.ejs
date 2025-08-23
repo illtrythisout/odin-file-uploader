@@ -3,7 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Odin Drive</title>
   <link rel="stylesheet" href="/styles/global-styles.css" />
-  <% if (locals.stylesheets) { %>
-  <link rel="stylesheet" href="<%= '/styles/' + locals.stylesheets[0] %>" />
-  <% } %>
+  <% if (locals.stylesheets) { locals.stylesheets.forEach((stylesheet, i) => {
+  %>
+  <link rel="stylesheet" href="<%= '/styles/' + locals.stylesheets[i] %>" />
+  <% }) } %>
 </head>

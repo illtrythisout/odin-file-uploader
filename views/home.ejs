@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./components/head', {stylesheets: ['home.css', 'item.css']}) %>
+  </head>
+  <body>
+    <nav>
+      <p><img src="/icons/odin-logo.svg" alt="logo" />Odin Drive</p>
+      <a href="/logout">Logout</a>
+    </nav>
+    <main>
+      <div class="container-div">
+        <header>
+          <h2>My Drive</h2>
+          <div>
+            <button>New Folder</button>
+            <button>New File</button>
+          </div>
+        </header>
+        <div class="file-display">
+          <%- include('./components/folder') %> <%- include('./components/file')
+          %>
+        </div>
+        <div class="file-footer">
+          <p><b>File path: </b><%= '/Drive/' %></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

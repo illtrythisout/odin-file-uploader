@@ -1,6 +1,7 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font: inherit;
@@ -76,9 +77,10 @@ main {
   align-items: center;
   gap: var(--double-padding);
 
-  height: 100lvh;
+  min-height: 100lvh;
 }
 b {
+  display: inline;
   font-weight: bold;
 }
 svg {
@@ -108,6 +110,10 @@ h1 {
 h2 {
   font-size: 1.6rem;
 }
+a {
+  color: var(--color-primary-darker);
+  text-decoration: underline;
+}
 
 form {
   display: flex;
@@ -129,4 +135,31 @@ form {
   border-radius: var(--default-border-radius);
   background-color: var(--color-canvas-lighter);
   box-shadow: var(--default-box-shadow);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--default-padding);
+
+  padding: var(--half-padding) var(--double-padding);
+
+  background-color: var(--color-canvas-darker);
+}
+nav > p {
+  display: flex;
+  align-items: center;
+  gap: var(--default-padding);
+
+  font-weight: bold;
+}
+nav > p img {
+  height: 2rem;
+}
+
+.flex-horizontal {
+  display: flex;
+  align-items: center;
+  gap: var(--default-padding);
 }

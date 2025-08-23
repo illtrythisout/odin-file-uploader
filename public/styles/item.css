@@ -8,6 +8,7 @@
 
   --color-primary: #e17100;
   --color-primary-lighter: #fd9a00;
+  --color-primary-even-lighter: #faab57;
   --color-primary-darker: #bb4d00;
 
   /* spacing */
@@ -24,20 +25,20 @@
 
 /* ------------------------------------------------------------------------------------------------ */
 
-h1 {
+.folder,
+.file {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: var(--default-padding);
-}
-img {
-  height: 5.5rem;
+
+  padding: var(--default-padding);
 }
 
-.container-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--double-padding);
-
-  width: 25rem;
+.flex-horizontal {
+  --font-size: 1rem;
+  font-size: var(--font-size);
+}
+.flex-horizontal img {
+  --size: calc(var(--font-size) * 2);
+  height: var(--size);
 }
