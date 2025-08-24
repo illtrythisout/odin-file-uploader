@@ -122,6 +122,9 @@ form {
 
   width: 100%;
 }
+input {
+  padding: calc(var(--half-padding) / 2) var(--half-padding);
+}
 .input-label-div {
   display: flex;
   flex-direction: column;
