@@ -54,6 +54,25 @@ header {
   border-top-left-radius: var(--default-border-radius);
   border-top-right-radius: var(--default-border-radius);
 }
+.file-display {
+  height: 100%;
+}
 .file-footer {
   background-color: var(--color-canvas);
+}
+
+dialog > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--default-padding);
+}
+.close-dialog-btn {
+  align-self: end;
+  background-color: transparent;
+  padding: 0;
+}
+.close-dialog-btn:hover {
+  background-color: transparent;
+  transform: scale(1.2);
 }

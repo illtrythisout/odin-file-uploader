@@ -4,9 +4,9 @@ const router = Router();
 const indexController = require('../controllers/indexController');
 const passport = require('passport');
 
-// home routes
+// drive routes
 const userRouter = require('./userRouter');
-router.use('/home', userRouter);
+router.use('/drive', userRouter);
 
 // index routes
 
@@ -15,7 +15,7 @@ router.get('/', indexController.indexGet);
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: '/drive',
     failureRedirect: '/',
   })
 );

@@ -13,7 +13,9 @@
         <header>
           <h2>My Drive</h2>
           <div>
-            <button>New Folder</button>
+            <button onclick="showDialog('new-folder-dialog')">
+              New Folder
+            </button>
             <button>New File</button>
           </div>
         </header>
@@ -22,9 +24,40 @@
           %>
         </div>
         <div class="file-footer">
-          <p><b>File path: </b><%= '/Drive/' %></p>
+          <p><b>File path: </b><%= 'My Drive' %></p>
         </div>
       </div>
     </main>
+
+    <dialog id="new-folder-dialog">
+      <div>
+        <button
+          class="close-dialog-btn"
+          onclick="closeDialog('new-folder-dialog')"
+        >
+          <img src="/icons/close.svg" alt="close dialog" />
+        </button>
+        <form action="/drive/create-folder" method="post">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Untitled folder"
+          />
+          <button type="submit">Create</button>
+        </form>
+      </div>
+    </dialog>
+
+    <script>
+      function showDialog(id) {
+        const dialog = document.getElementById(id);
+        dialog.showModal();
+      }
+      function closeDialog(id) {
+        const dialog = document.getElementById(id);
+        dialog.close();
+      }
+    </script>
   </body>
 </html>

@@ -19,6 +19,11 @@ async function signupPost(req, res) {
         password: hashedPassword,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        folders: {
+          create: {
+            name: 'root',
+          },
+        },
       },
     });
     console.log(user);

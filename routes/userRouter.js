@@ -3,6 +3,8 @@ const router = Router();
 
 const userController = require('../controllers/userController');
 
-router.route('/').get(userController.homeGet);
+router.get('/', userController.homeGet);
+
+router.post('/create-folder', userController.createFolder);
 
 module.exports = router;

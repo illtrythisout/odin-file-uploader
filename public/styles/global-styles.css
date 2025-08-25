@@ -59,6 +59,7 @@ a {
   --default-box-shadow: 2.5px 2.5px 10px 0px rgba(0, 0, 0, 0.1);
 
   /* transition */
+  --default-transition-time: 0.2s;
 }
 
 /* ------------------------------------------------------------------------------------------------ */
@@ -100,6 +101,10 @@ button {
   border-radius: var(--default-border-radius);
 
   cursor: pointer;
+
+  outline: none;
+
+  transition: var(--default-transition-time);
 }
 button:hover {
   background-color: var(--color-primary-even-lighter);
@@ -165,4 +170,20 @@ nav > p img {
   display: flex;
   align-items: center;
   gap: var(--default-padding);
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: var(--default-padding);
+  border-radius: var(--default-border-radius);
+  border: none;
+  box-sizing: var(--default-box-shadow);
+  outline: none;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5); /* darkens the page */
 }
