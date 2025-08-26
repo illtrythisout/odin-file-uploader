@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./components/head', {stylesheets: ['home.css', 'item.css']}) %>
+    <%- include('./components/head', {stylesheets: ['drive.css', 'item.css']})
+    %>
   </head>
   <body>
     <nav>
@@ -20,8 +21,8 @@
           </div>
         </header>
         <div class="file-display">
-          <%- include('./components/folder') %> <%- include('./components/file')
-          %>
+          <% locals.folders.forEach(folder => {%> <%-
+          include('./components/folder', {folder}) %> <% }) %>
         </div>
         <div class="file-footer">
           <p><b>File path: </b><%= 'My Drive' %></p>

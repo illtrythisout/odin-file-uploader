@@ -1,7 +1,18 @@
 const prisma = require('../client/prisma');
 
-function homeGet(req, res) {
-  res.render('home');
+async function driveGet(req, res) {
+  try {
+    const rootFolder = await prisma.folder.findFirst({
+      where: { userId: req.user.id, parentId: null },
+      select: { id: true },
+    });
+
+    const folders = await prisma.folder.findMany({
+      where: { userId: req.user.id, parentId: rootFolder.id },
+    });
+    res.locals.folders = folders;
+    res.render('drive');
+  } catch (err) {}
 }
 
 async function renderFolder(req, res) {}
@@ -31,4 +42,4 @@ async function createFolder(req, res) {
   }
 }
 
-module.exports = { homeGet, createFolder };
+module.exports = { driveGet, createFolder };
