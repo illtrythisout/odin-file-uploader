@@ -36,12 +36,11 @@
     <dialog id="new-folder-dialog">
       <div>
         <button
-          class="close-dialog-btn"
+          class="close-dialog-btn transparent-button"
           onclick="closeDialog('new-folder-dialog')"
         >
           <img src="/icons/close.svg" alt="close dialog" />
         </button>
-        <p><%= `/drive/create-folder/${locals.folder.id}` %></p>
         <form
           action="<%= `/drive/create-folder/${locals.folder.id}` %>"
           method="post"

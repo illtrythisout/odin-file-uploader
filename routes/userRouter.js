@@ -9,4 +9,6 @@ router.get('/:folderId', userController.folderGet);
 
 router.post('/create-folder/:currentFolderId', userController.createFolder);
 
+router.post('/delete-folder/:currentFolderId', userController.deleteFolder);
+
 module.exports = router;

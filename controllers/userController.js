@@ -23,7 +23,6 @@ async function folderGet(req, res) {
     });
 
     const filePath = await driveFunctions.getCurrentFilePath(folder);
-    console.log(filePath);
     res.render('drive', { folder: folder, filePath: filePath });
   } catch (err) {
     console.error(err);
@@ -53,4 +52,19 @@ async function createFolder(req, res) {
   }
 }
 
-module.exports = { driveGet, folderGet, createFolder };
+async function deleteFolder(req, res) {
+  try {
+    const currentFolder = await prisma.folder.findFirst({
+      where: { id: Number(req.params.currentFolderId) },
+    });
+    await prisma.folder.delete({
+      where: { id: Number(req.params.currentFolderId) },
+    });
+
+    res.redirect(`/drive/${currentFolder.parentId}`);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+module.exports = { driveGet, folderGet, createFolder, deleteFolder };

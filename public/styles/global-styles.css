@@ -109,6 +109,18 @@ button {
 button:hover {
   background-color: var(--color-primary-even-lighter);
 }
+.transparent-button {
+  width: fit-content;
+  height: fit-content;
+
+  background-color: transparent;
+  padding: 0;
+}
+.transparent-button:hover {
+  background-color: transparent;
+  transform: scale(1.2);
+}
+
 h1 {
   font-size: 4rem;
 }

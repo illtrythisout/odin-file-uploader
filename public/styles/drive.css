@@ -69,10 +69,4 @@ dialog > div {
 }
 .close-dialog-btn {
   align-self: end;
-  background-color: transparent;
-  padding: 0;
-}
-.close-dialog-btn:hover {
-  background-color: transparent;
-  transform: scale(1.2);
 }
