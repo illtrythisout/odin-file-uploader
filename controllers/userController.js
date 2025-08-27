@@ -54,14 +54,37 @@ async function createFolder(req, res) {
 
 async function deleteFolder(req, res) {
   try {
+    const folderId = Number(req.params.currentFolderId);
+    // find folder first so we know where to redirect the user after deletion
     const currentFolder = await prisma.folder.findFirst({
-      where: { id: Number(req.params.currentFolderId) },
-    });
-    await prisma.folder.delete({
-      where: { id: Number(req.params.currentFolderId) },
+      where: { id: folderId },
     });
 
-    res.redirect(`/drive/${currentFolder.parentId}`);
+    // safeguard: don’t allow root folder deletion
+    if (currentFolder.parentId === null) {
+      throw new Error('Cannot delete the root folder');
+    }
+
+    // run delete logic in a transaction so if any step fails, nothing is lost
+    await prisma.$transaction(async (tx) => {
+      // recursively delete all nested files and folders first
+      async function deleteRecursively(id) {
+        // find child folders
+        const children = await tx.folder.findMany({ where: { parentId: id } });
+
+        // recursively call for each child
+        for (const child of children) {
+          await deleteRecursively(child.id);
+        }
+
+        // delete contents, then delete the folder itself
+        await tx.file.deleteMany({ where: { parentId: id } });
+        await tx.folder.delete({ where: { id } });
+      }
+      await deleteRecursively(folderId);
+    });
+
+    res.redirect(`/drive/${currentFolder.parentId ?? ''}`);
   } catch (err) {
     console.error(err);
   }

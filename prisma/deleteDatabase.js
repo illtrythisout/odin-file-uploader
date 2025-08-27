@@ -16,3 +16,8 @@ const prisma = require('../client/prisma');
 //   console.dir(user);
 // }
 // getUser();
+
+// async function deleteFolder() {
+//   await prisma.folder.delete({ where: { id: 11 } });
+// }
+// deleteFolder();
