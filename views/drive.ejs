@@ -12,7 +12,10 @@
     <main>
       <div class="container-div">
         <header>
-          <h2>My Drive</h2>
+          <h2>
+            <%= locals.folder.name === 'root' ? 'My Drive' : locals.folder.name
+            %>
+          </h2>
           <div>
             <button onclick="showDialog('new-folder-dialog')">
               New Folder
@@ -21,11 +24,11 @@
           </div>
         </header>
         <div class="file-display">
-          <% locals.folders.forEach(folder => {%> <%-
+          <% locals.folder.folders.forEach(folder => {%> <%-
           include('./components/folder', {folder}) %> <% }) %>
         </div>
         <div class="file-footer">
-          <p><b>File path: </b><%= 'My Drive' %></p>
+          <p><b>File path: </b><%= locals.filePath %></p>
         </div>
       </div>
     </main>
@@ -38,7 +41,11 @@
         >
           <img src="/icons/close.svg" alt="close dialog" />
         </button>
-        <form action="/drive/create-folder" method="post">
+        <p><%= `/drive/create-folder/${locals.folder.id}` %></p>
+        <form
+          action="<%= `/drive/create-folder/${locals.folder.id}` %>"
+          method="post"
+        >
           <input
             type="text"
             name="name"

@@ -5,6 +5,8 @@ const userController = require('../controllers/userController');
 
 router.get('/', userController.driveGet);
 
-router.post('/create-folder', userController.createFolder);
+router.get('/:folderId', userController.folderGet);
+
+router.post('/create-folder/:currentFolderId', userController.createFolder);
 
 module.exports = router;

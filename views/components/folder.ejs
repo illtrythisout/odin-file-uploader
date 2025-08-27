@@ -1,7 +1,9 @@
 <div class="folder">
   <div class="flex-horizontal">
     <img src="/icons/folder.svg" alt="folder" />
-    <p><b><%= folder.name || 'Untitled folder' %></b></p>
+    <a href="<%= `/drive/${folder.id}` %>">
+      <p><b><%= folder.name || 'Untitled folder' %></b></p>
+    </a>
   </div>
   <!-- <a href="/actions/folder/delete:<%= // folder.id || '' %>">Delete</a> -->
   <a href="/drive%>"><img src="/icons/delete.svg" alt="delete" /></a>
