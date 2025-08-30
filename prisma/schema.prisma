@@ -44,7 +44,6 @@ model Folder {
 
 model File {
   id            Int      @id @default(autoincrement())
-  filename      String
   savedFilename String?  @db.VarChar(255)
   url           String
   size          Int
