@@ -2,6 +2,7 @@
   /* colors */
   --color-canvas: #f3f4f6;
   --color-canvas-darker: #e2e8f0;
+  --color-canvas-even-darker: #dae1eb;
   --color-canvas-lighter: #ffffff;
 
   --color-text-co: #030712;
@@ -71,6 +72,31 @@ dialog > div {
   align-items: center;
   gap: var(--default-padding);
 }
+#new-file-dialog {
+  width: 15rem;
+}
+#new-file-dialog #file {
+  display: none;
+}
+#new-file-dialog label[for='file'] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--half-padding);
+  width: 100%;
+  background-color: var(--color-canvas-darker);
+  border-radius: var(--default-border-radius);
+}
+#new-file-dialog label[for='file']:hover {
+  background-color: var(--color-canvas-even-darker);
+}
+#new-file-dialog label[for='file'] img {
+  align-self: center;
+  --size: 4rem;
+  height: var(--size);
+  width: var(--size);
+}
+
 .close-dialog-btn {
   align-self: end;
 }
