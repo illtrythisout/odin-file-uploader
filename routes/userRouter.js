@@ -18,4 +18,6 @@ router.post(
   userController.uploadFile
 );
 
+router.post('/delete-file/:currentFileId', userController.deleteFile);
+
 module.exports = router;

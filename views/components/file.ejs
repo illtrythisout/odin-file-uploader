@@ -1,10 +1,18 @@
 <div class="file">
   <div class="flex-horizontal">
     <img src="/icons/file.svg" alt="file" />
-    <!-- <p><b><%= // locals.folder.name || 'Folder' %></b></p> -->
-    <p><b>File</b></p>
+    <a href="<%= file.url %>" target="_blank">
+      <p><b><%= file.savedFilename || 'Untitled file' %></b></p>
+    </a>
   </div>
-  <!-- <a href="/actions/folder/delete:<%= // locals.folder.id || '' %>">Delete</a> -->
-  <a href="/drive%>"><img src="/icons/delete.svg" alt="delete" /></a>
+  <form
+    action="/drive/delete-file/<%= file.id %>"
+    method="post"
+    class="deleteItemForm"
+  >
+    <button type="submit" class="transparent-button">
+      <img src="/icons/delete.svg" alt="delete" />
+    </button>
+  </form>
 </div>
 <hr />

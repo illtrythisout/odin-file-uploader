@@ -120,6 +120,7 @@ async function uploadFile(req, res, next) {
       data: {
         savedFilename: req.file.originalname,
         url: result.secure_url,
+        publicId: result.public_id,
         size: req.file.size,
         mimetype: req.file.mimetype,
         parent: { connect: { id: currentFolder.id } },
@@ -134,10 +135,32 @@ async function uploadFile(req, res, next) {
   }
 }
 
+async function deleteFile(req, res, next) {
+  try {
+    // get current file
+    const currentFile = await prisma.file.findUnique({
+      where: { id: Number(req.params.currentFileId) },
+    });
+
+    // delete from cloudinary
+    const result = await cloudinary.uploader.destroy(currentFile.publicId);
+
+    // delete from database if cloudinary delete was successful
+    await prisma.file.delete({ where: { id: currentFile.id } });
+
+    // get redirect link to go back to folder view
+    const redirectLink = `/drive/${currentFile.parentId}`;
+    res.redirect(redirectLink);
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   driveGet,
   folderGet,
   createFolder,
   deleteFolder,
   uploadFile,
+  deleteFile,
 };

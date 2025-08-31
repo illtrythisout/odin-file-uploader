@@ -25,7 +25,9 @@
         </header>
         <div class="file-display">
           <% locals.folder.folders.forEach(folder => {%> <%-
-          include('./components/folder', {folder}) %> <% }) %>
+          include('./components/folder', {folder}) %> <% }) %> <%
+          locals.folder.files.forEach(file => {%> <%-
+          include('./components/file', {file}) %> <% }) %>
         </div>
         <div class="file-footer">
           <p><b>File path: </b><%= locals.filePath %></p>

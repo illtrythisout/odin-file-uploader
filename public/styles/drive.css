@@ -57,6 +57,10 @@ header {
 .file-display {
   height: 100%;
 }
+.file-display a {
+  color: var(--color-text-co);
+  text-decoration: none;
+}
 .file-footer {
   background-color: var(--color-canvas);
 }
